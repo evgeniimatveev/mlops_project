@@ -24,7 +24,9 @@ y = df[target_column]  # 🏡 House prices (target variable)
 X = df.drop(columns=[target_column])  # Remove the target variable
 
 # ✂️ Split the dataset into training (80%) and test (20%) sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
 # 🔍 Ensure all feature names are strings
 X_train.columns = list(map(str, X_train.columns))
@@ -35,11 +37,11 @@ xgb_model = xgb.XGBRegressor(objective="reg:squarederror", random_state=42)
 
 # 🎯 Define the grid of hyperparameters to tune
 param_grid = {
-    "n_estimators": [50, 100, 200],  
-    "learning_rate": [0.01, 0.1, 0.2],  
-    "max_depth": [3, 6, 9], 
-    "subsample": [0.6, 0.8, 1.0], 
-    "colsample_bytree": [0.6, 0.8, 1.0],  
+    "n_estimators": [50, 100, 200],
+    "learning_rate": [0.01, 0.1, 0.2],
+    "max_depth": [3, 6, 9],
+    "subsample": [0.6, 0.8, 1.0],
+    "colsample_bytree": [0.6, 0.8, 1.0],
 }
 
 # 🔍 Run Grid Search with cross-validation
@@ -49,7 +51,7 @@ grid_search = GridSearchCV(
     scoring="neg_root_mean_squared_error",  # RMSE (negative for maximization)
     cv=3,  # 3-fold cross-validation
     verbose=2,
-    n_jobs=-1  
+    n_jobs=-1,
 )
 
 print("🚀 Running Grid Search for XGBoost hyperparameters...")

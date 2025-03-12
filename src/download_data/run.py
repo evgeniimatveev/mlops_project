@@ -1,4 +1,4 @@
-`import os  # Library for file and directory handling
+import os  # Library for file and directory handling
 import requests  # Library for making HTTP requests (used to download the dataset)
 import pandas as pd  # Pandas for handling CSV files
 import wandb  # Weights & Biases for experiment tracking and logging
@@ -13,7 +13,9 @@ DATA_URL = "https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 # Define the correct path where the raw dataset will be saved
-RAW_DIR = os.path.join(BASE_DIR, "data", "raw")  # Ensure the dataset is stored in `data/raw/`
+RAW_DIR = os.path.join(
+    BASE_DIR, "data", "raw"
+)  # Ensure the dataset is stored in `data/raw/`
 RAW_DATA_PATH = os.path.join(RAW_DIR, "housing.csv")  # Define the full file path
 
 # Ensure that the raw data directory exists, create it if it does not
@@ -28,7 +30,7 @@ print(f"📥 Downloading dataset to: {RAW_DATA_PATH}")
 try:
     # Send an HTTP request to download the dataset with a timeout to prevent indefinite waiting
     response = requests.get(DATA_URL, timeout=10)
-    
+
     # Raise an error if the response status is not 200 (successful)
     response.raise_for_status()
 
@@ -46,7 +48,7 @@ try:
     wandb.log({"rows": df.shape[0], "columns": df.shape[1]})
 
     # Print confirmation message
-    print("✅ Dataset downloaded successfully!")
+    print("Dataset saved successfully!")
 
 except requests.exceptions.RequestException as e:
     # Log download failure in W&B
@@ -62,4 +64,4 @@ except requests.exceptions.RequestException as e:
 wandb.log({"status": "Dataset saved successfully!"})
 
 # Print success message
-print("✅ Dataset saved successfully!")`
+print("Dataset saved successfully!")

@@ -10,8 +10,12 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 # Define correct paths
 RAW_DATA_PATH = os.path.join(BASE_DIR, "data", "raw", "housing.csv")  # Path to raw data
-PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")  # Directory for cleaned data
-CLEAN_DATA_PATH = os.path.join(PROCESSED_DIR, "housing_cleaned.csv")  # Path for cleaned dataset
+PROCESSED_DIR = os.path.join(
+    BASE_DIR, "data", "processed"
+)  # Directory for cleaned data
+CLEAN_DATA_PATH = os.path.join(
+    PROCESSED_DIR, "housing_cleaned.csv"
+)  # Path for cleaned dataset
 
 # Ensure the processed directory exists
 os.makedirs(PROCESSED_DIR, exist_ok=True)
@@ -47,9 +51,11 @@ df.to_csv(CLEAN_DATA_PATH, index=False)
 print(f"💾 Cleaned dataset saved to: {CLEAN_DATA_PATH}")
 
 # Log final dataset shape and completion message
-wandb.log({
-    "final_rows": df.shape[0], 
-    "final_columns": df.shape[1], 
-    "status": "Data cleaning completed successfully!"
-})
+wandb.log(
+    {
+        "final_rows": df.shape[0],
+        "final_columns": df.shape[1],
+        "status": "Data cleaning completed successfully!",
+    }
+)
 print("✅ Data cleaning completed successfully!")

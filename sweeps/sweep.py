@@ -9,7 +9,9 @@ os.makedirs(WANDB_DIR, exist_ok=True)
 os.environ["WANDB_DIR"] = WANDB_DIR  # Force W&B to log here
 
 # 📂 Load sweep configuration from the correct location
-SWEEP_CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "config", "sweep_config.yaml")
+SWEEP_CONFIG_PATH = os.path.join(
+    os.path.dirname(__file__), "..", "config", "sweep_config.yaml"
+)
 
 # 🔍 Ensure the config file exists
 if not os.path.exists(SWEEP_CONFIG_PATH):

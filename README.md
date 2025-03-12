@@ -28,7 +28,7 @@ MLOps_Project/
 │   ├── model_deployment/  # API for model deployment
 │   ├── utils/             # Utility functions
 ├── sweeps/                # W&B sweep scripts for hyperparameter tuning
-├── tracking/              # Experiment tracking logs (W&B & MLflow)
+├── wandb/                 # Weights & Biases logs
 ├── config/                # Project configuration files
 ├── .github/workflows/     # CI/CD pipeline
 ├── .gitignore             # Ignore unnecessary files

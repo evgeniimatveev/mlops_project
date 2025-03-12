@@ -1,5 +1,0 @@
-✅ Feature Names (X_train): ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'ocean_proximity_1H OCEAN', 'ocean_proximity_INLAND', 'ocean_proximity_ISLAND', 'ocean_proximity_NEAR BAY', 'ocean_proximity_NEAR OCEAN']
-2025/03/09 01:29:28 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
-2025/03/09 01:29:28 INFO mlflow.tracking._tracking_service.client: 🏃 View run adorable-crab-46 at: http://127.0.0.1:5000/#/experiments/3/runs/37cc782abc43441b858724ff22cbc151.
-2025/03/09 01:29:28 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://127.0.0.1:5000/#/experiments/3.
-✅ W&B + MLflow логирование завершено! | RMSE: 46403.96, R² Score: 0.84

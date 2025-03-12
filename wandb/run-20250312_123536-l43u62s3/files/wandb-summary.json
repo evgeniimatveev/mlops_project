@@ -1,0 +1,1 @@
+{"Final Test RMSE":45486.548703932924,"Best RMSE":46843.70505379414,"_step":1,"subsample":0.8,"_timestamp":1.7418082928285708e+09,"max_depth":9,"_runtime":156.437918,"learning_rate":0.1,"_wandb":{"runtime":156},"colsample_bytree":0.8,"n_estimators":200}

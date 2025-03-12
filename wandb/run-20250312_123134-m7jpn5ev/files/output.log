@@ -1,0 +1,7 @@
+📂 Loading dataset from: c:\Users\GAMING\mlops_project\data\raw\housing.csv
+🔍 Initial dataset shape: (20640, 10)
+✅ Removed duplicates. New shape: (20640, 10)
+✅ Filled missing values.
+✅ Encoded categorical column 'ocean_proximity'.
+💾 Cleaned dataset saved to: c:\Users\GAMING\mlops_project\data\processed\housing_cleaned.csv
+✅ Data cleaning completed successfully!

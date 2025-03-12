@@ -1,11 +1,19 @@
-MLOps Project 🚀
+# 🚀 MLOps Project
+![MLOps](https://img.shields.io/badge/MLOps-Automation-blue) 
+![Tracking](https://img.shields.io/badge/Tracking-MLflow%20%7C%20W%26B-orange) 
+![SQL](https://img.shields.io/badge/Database-PostgreSQL-blue) 
+![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-green) 
+![Status](https://img.shields.io/badge/Status-Active-brightgreen) 
+![License](https://img.shields.io/badge/License-MIT-lightgrey)  
 
-📌 Overview
+## 📌 Overview
 
-This repository contains an end-to-end MLOps pipeline for managing, tracking, and automating machine learning experiments. The project integrates MLflow, Weights & Biases (W&B), SQL for analysis, and CI/CD automation.
+This repository provides an **end-to-end MLOps pipeline** for managing, tracking, and automating machine learning experiments.  
+The project integrates **MLflow**, **Weights & Biases (W&B)**, **SQL** for experiment analysis, and **CI/CD automation**.
 
-📂 Project Structure 📁
+## 📂 Project Structure
 
+```
 MLOps_Project/
 ├── data/                  # Raw and processed datasets
 ├── mlruns/                # MLflow tracking logs
@@ -20,77 +28,85 @@ MLOps_Project/
 │   ├── model_deployment/  # API for model deployment
 │   ├── utils/             # Utility functions
 ├── sweeps/                # W&B sweep scripts for hyperparameter tuning
-├── tracking/              # Configurations for MLflow & W&B tracking
+├── tracking/              # Experiment tracking logs (W&B & MLflow)
 ├── config/                # Project configuration files
 ├── .github/workflows/     # CI/CD pipeline
 ├── .gitignore             # Ignore unnecessary files
 ├── environment.yaml       # Conda environment dependencies
 ├── requirements.txt       # Python dependencies
 ├── README.md              # Project documentation
-├── README_RU.md           # Russian documentation
+```
 
-🛠 Tech Stack
+---
 
-MLflow 🧪 – Experiment tracking and model registry
+## 🛠 Tech Stack  
 
-Weights & Biases (W&B) 📊 – Logging and hyperparameter sweeps
+- **MLflow** 🧪 – Experiment tracking and model registry  
+- **Weights & Biases (W&B)** 📊 – Logging and hyperparameter sweeps  
+- **PostgreSQL** 🛢️ – SQL for tracking and querying experiments  
+- **XGBoost** 🌲 – Machine learning model  
+- **Python** 🐍 – Main programming language  
+- **GitHub Actions** ⚙️ – CI/CD automation  
 
-PostgreSQL 🛢️ – SQL for tracking and querying experiments
+---
 
-XGBoost 🌲 – Machine learning model
+## 🔧 Setup & Installation  
 
-Python 🐍 – Main programming language
+### 1️⃣ Clone the repository  
 
-GitHub Actions ⚙️ – CI/CD automation (planned)
-
-🔧 Setup & Installation
-
-1️⃣ Clone the repository
-
+```bash
 git clone https://github.com/your-username/mlops_project.git
 cd mlops_project
+```
 
-2️⃣ Create a virtual environment (Optional)
+### 2️⃣ Create a virtual environment (Optional)  
 
+```bash
 conda env create -f environment.yaml
 conda activate mlops_env
+```
 
 OR
 
+```bash
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate  # On Windows
 pip install -r requirements.txt
+```
 
-3️⃣ Run the pipeline
+### 3️⃣ Run the pipeline  
 
-Run data preprocessing
-
+#### Run data preprocessing  
+```bash
 python src/clean_data/run.py
+```
 
-Run model training
-
+#### Run model training  
+```bash
 python src/model_training/run.py
+```
 
-Run hyperparameter tuning with W&B
-
+#### Run hyperparameter tuning with W&B  
+```bash
 python sweeps/sweep.py
+```
 
-Start MLflow UI
-
+#### Start MLflow UI  
+```bash
 mlflow ui --host 0.0.0.0 --port 5000
-
+```
 Then open http://localhost:5000 in your browser.
 
-🚀 Future Plans
+---
 
-✅ MLflow & W&B integration
+## 🚀 Future Plans
 
-✅ SQL experiment analysis
+✅ MLflow & W&B integration  
+✅ SQL experiment analysis  
+🔜 CI/CD with GitHub Actions  
+🔜 Model deployment via API  
 
-🔜 CI/CD with GitHub Actions
+---
 
-🔜 Model deployment via API
-
-⚡ Happy Coding & Experiment Tracking! 🚀
-
+⚡ **Happy Coding & Experiment Tracking!** 🚀

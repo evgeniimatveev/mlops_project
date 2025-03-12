@@ -1,0 +1,15 @@
+mlflow:
+  # MLflow tracking URI - This can be a local MLflow server, remote server, or database connection
+  tracking_uri: "http://127.0.0.1:5000"
+
+  # Name of the experiment where runs will be logged (creates one if it doesn’t exist)
+  experiment_name: "mlops_housing_v3"
+
+  # Location for storing MLflow artifacts (can be a local directory or cloud storage like S3/GCS)
+  artifact_location: "./mlflow_artifacts_v3"
+
+  # Enable model registry for versioning models
+  model_registry: "enabled"
+
+  # Database connection for backend store (PostgreSQL is used here)
+  backend_store_uri: "postgresql://mlflow_user:mlflow_pass123@localhost/mlflow_db"

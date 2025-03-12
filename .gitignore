@@ -1,0 +1,33 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+.env/
+*.env
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore MLflow artifacts and logs
+mlruns/
+logs/
+
+# Ignore database files
+*.db
+*.sqlite3
+
+# Ignore data files (optional, если хочешь загружать на GitHub)
+data/raw/
+data/processed/
+
+# Ignore environment files
+environment.yaml
+.env

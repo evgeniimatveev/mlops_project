@@ -1,0 +1,12 @@
+wandb_version: 1
+
+colsample_bytree:
+  value: 0.6894867343678749
+learning_rate:
+  value: 0.08501528877335267
+max_depth:
+  value: 9
+n_estimators:
+  value: 160
+subsample:
+  value: 0.7964535070630909

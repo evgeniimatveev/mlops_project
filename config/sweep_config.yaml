@@ -1,0 +1,20 @@
+program: train_sweep.py  # The script that will be executed during the sweep
+method: bayes  # Optimization method (options: grid, random, bayes)
+metric:
+  name: Final Test RMSE  # The key metric to optimize
+  goal: minimize  # We aim to minimize RMSE (lower is better)
+parameters:
+  n_estimators:
+    min: 50  # Minimum number of boosting rounds (trees)
+    max: 300  # Maximum number of boosting rounds
+  learning_rate:
+    min: 0.01  # Minimum learning rate (step size)
+    max: 0.3  # Maximum learning rate
+  max_depth:
+    values: [3, 6, 9, 12]  # Different tree depths to explore
+  subsample:
+    min: 0.6  # Minimum fraction of training data used per tree
+    max: 1.0  # Maximum (full dataset per tree)
+  colsample_bytree:
+    min: 0.6  # Minimum fraction of features used per tree
+    max: 1.0  # Maximum (all features per tree)

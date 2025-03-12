@@ -1,0 +1,39 @@
+_wandb:
+    value:
+        cli_version: 0.19.8
+        m: []
+        python_version: 3.8.20
+        t:
+            "1":
+                - 5
+                - 6
+                - 53
+                - 55
+            "2":
+                - 5
+                - 6
+                - 53
+                - 55
+            "3":
+                - 2
+                - 14
+                - 16
+                - 23
+                - 55
+            "4": 3.8.20
+            "5": 0.19.8
+            "8":
+                - 3
+                - 5
+            "12": 0.19.8
+            "13": windows-amd64
+colsample_bytree:
+    value: 0.6894867343678749
+learning_rate:
+    value: 0.08501528877335267
+max_depth:
+    value: 9
+n_estimators:
+    value: 160
+subsample:
+    value: 0.7964535070630909

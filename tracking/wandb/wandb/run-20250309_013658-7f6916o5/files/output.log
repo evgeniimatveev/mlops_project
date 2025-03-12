@@ -1,0 +1,11 @@
+✅ Feature Names (X_train): ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'ocean_proximity_1H OCEAN', 'ocean_proximity_INLAND', 'ocean_proximity_ISLAND', 'ocean_proximity_NEAR BAY', 'ocean_proximity_NEAR OCEAN']
+2025/03/09 01:37:05 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+2025/03/09 01:37:05 INFO mlflow.tracking._tracking_service.client: 🏃 View run rogue-hound-712 at: http://127.0.0.1:5000/#/experiments/3/runs/da65c6d8f1014de390cbb81b7694a658.
+2025/03/09 01:37:05 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://127.0.0.1:5000/#/experiments/3.
+
+==================================================
+✅ W&B + MLflow Logging Completed!
+📊 RMSE: 47590.77
+📏 MAE: 31736.82
+📈 R² Score: 0.8272
+==================================================

@@ -1,0 +1,11 @@
+✅ Feature Names (X_train): ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'ocean_proximity_1H OCEAN', 'ocean_proximity_INLAND', 'ocean_proximity_ISLAND', 'ocean_proximity_NEAR BAY', 'ocean_proximity_NEAR OCEAN']
+2025/03/09 01:36:41 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+2025/03/09 01:36:41 INFO mlflow.tracking._tracking_service.client: 🏃 View run honorable-vole-118 at: http://127.0.0.1:5000/#/experiments/3/runs/2196eb19d3d740cab7b1c5fdbfb39134.
+2025/03/09 01:36:41 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://127.0.0.1:5000/#/experiments/3.
+
+==================================================
+✅ W&B + MLflow Logging Completed!
+📊 RMSE: 47877.21
+📏 MAE: 31809.74
+📈 R² Score: 0.8251
+==================================================

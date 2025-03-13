@@ -1,7 +1,7 @@
-🚀 Running Grid Search for XGBoost hyperparameters...
+ Running Grid Search for XGBoost hyperparameters...
 Fitting 3 folds for each of 243 candidates, totalling 729 fits
-🔥 Best RMSE: 46843.71
-🏆 Best Hyperparameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 9, 'n_estimators': 200, 'subsample': 0.8}
+ Best RMSE: 46843.71
+ Best Hyperparameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 9, 'n_estimators': 200, 'subsample': 0.8}
 ✅ Best model saved at: c:\Users\GAMING\mlops_project\models\best_xgb_model.json
 ✅ Final Test RMSE: 45486.55
-🎯 Hyperparameter tuning completed successfully!
+ Hyperparameter tuning completed successfully!

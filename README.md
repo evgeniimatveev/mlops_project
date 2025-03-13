@@ -1,4 +1,4 @@
-# 🚀 MLOps Project
+#  MLOps Project
 ![MLOps](https://img.shields.io/badge/MLOps-Automation-blue) 
 ![Tracking](https://img.shields.io/badge/Tracking-MLflow%20%7C%20W%26B-orange) 
 ![SQL](https://img.shields.io/badge/Database-PostgreSQL-blue) 
@@ -6,12 +6,12 @@
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen) 
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)  
 
-## 📌 Overview
+##  Overview
 
 This repository provides an **end-to-end MLOps pipeline** for managing, tracking, and automating machine learning experiments.  
 The project integrates **MLflow**, **Weights & Biases (W&B)**, **SQL** for experiment analysis, and **CI/CD automation**.
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 MLOps_Project/
@@ -39,18 +39,18 @@ MLOps_Project/
 
 ---
 
-## 🛠 Tech Stack  
+##  Tech Stack  
 
-- **MLflow** 🧪 – Experiment tracking and model registry  
-- **Weights & Biases (W&B)** 📊 – Logging and hyperparameter sweeps  
-- **PostgreSQL** 🛢️ – SQL for tracking and querying experiments  
-- **XGBoost** 🌲 – Machine learning model  
-- **Python** 🐍 – Main programming language  
+- **MLflow**  – Experiment tracking and model registry  
+- **Weights & Biases (W&B)**  – Logging and hyperparameter sweeps  
+- **PostgreSQL** ️ – SQL for tracking and querying experiments  
+- **XGBoost**  – Machine learning model  
+- **Python**  – Main programming language  
 - **GitHub Actions** ⚙️ – CI/CD automation  
 
 ---
 
-## 🔧 Setup & Installation  
+##  Setup & Installation  
 
 ### 1️⃣ Clone the repository  
 
@@ -100,13 +100,13 @@ Then open http://localhost:5000 in your browser.
 
 ---
 
-## 🚀 Future Plans
+##  Future Plans
 
 ✅ MLflow & W&B integration  
 ✅ SQL experiment analysis  
-🔜 CI/CD with GitHub Actions  
-🔜 Model deployment via API  
+ CI/CD with GitHub Actions  
+ Model deployment via API  
 
 ---
 
-⚡ **Happy Coding & Experiment Tracking!** 🚀
+⚡ **Happy Coding & Experiment Tracking!** 

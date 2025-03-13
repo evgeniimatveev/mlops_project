@@ -25,7 +25,7 @@ os.makedirs(RAW_DIR, exist_ok=True)
 wandb.log({"status": "Starting download..."})
 
 # Print message indicating where the dataset will be saved
-print(f"📥 Downloading dataset to: {RAW_DATA_PATH}")
+print(f" Downloading dataset to: {RAW_DATA_PATH}")
 
 try:
     # Send an HTTP request to download the dataset with a timeout to prevent indefinite waiting

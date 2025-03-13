@@ -22,14 +22,14 @@ os.makedirs(PROCESSED_DIR, exist_ok=True)
 
 # Log start of data cleaning
 wandb.log({"status": "Loading dataset..."})
-print(f"📂 Loading dataset from: {RAW_DATA_PATH}")
+print(f" Loading dataset from: {RAW_DATA_PATH}")
 
 # Load dataset
 df = pd.read_csv(RAW_DATA_PATH)
 
 # Log initial shape of the dataset
 wandb.log({"initial_rows": df.shape[0], "initial_columns": df.shape[1]})
-print(f"🔍 Initial dataset shape: {df.shape}")
+print(f" Initial dataset shape: {df.shape}")
 
 # Remove duplicate rows
 df.drop_duplicates(inplace=True)
@@ -48,7 +48,7 @@ if "ocean_proximity" in df.columns:
 
 # Save cleaned dataset
 df.to_csv(CLEAN_DATA_PATH, index=False)
-print(f"💾 Cleaned dataset saved to: {CLEAN_DATA_PATH}")
+print(f" Cleaned dataset saved to: {CLEAN_DATA_PATH}")
 
 # Log final dataset shape and completion message
 wandb.log(

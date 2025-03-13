@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 # ✅ Initialize Weights & Biases for experiment tracking
 wandb.init(project="mlops_housing", name="feature_engineering")
 
-# 📂 Define paths to input and output files
+#  Define paths to input and output files
 BASE_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..")
 )  # Get absolute project root
@@ -18,10 +18,10 @@ FEATURES_DIR = os.path.join(
 )  # Directory for saving scaled datasets
 os.makedirs(FEATURES_DIR, exist_ok=True)  # Ensure the directory exists
 
-# 🗂 Load the cleaned dataset
+#  Load the cleaned dataset
 df = pd.read_csv(PROCESSED_DATA_PATH)
 
-# 🎯 Select numerical features for scaling (excluding categorical or binary features)
+#  Select numerical features for scaling (excluding categorical or binary features)
 num_features = [
     "total_rooms",
     "total_bedrooms",
@@ -30,7 +30,7 @@ num_features = [
     "median_income",
 ]
 
-# 📉 Apply Min-Max Scaling (scales values between 0 and 1)
+#  Apply Min-Max Scaling (scales values between 0 and 1)
 minmax_scaler = MinMaxScaler()
 df_minmax = df.copy()  # Create a copy of the original dataset
 df_minmax[num_features] = minmax_scaler.fit_transform(
@@ -41,7 +41,7 @@ df_minmax[num_features] = minmax_scaler.fit_transform(
 minmax_path = os.path.join(FEATURES_DIR, "housing_scaled_minmax.csv")
 df_minmax.to_csv(minmax_path, index=False)  # Save without row indices
 
-# 📊 Apply Standard Scaling (Z-score normalization: mean = 0, std = 1)
+#  Apply Standard Scaling (Z-score normalization: mean = 0, std = 1)
 std_scaler = StandardScaler()
 df_standard = df.copy()  # Create another copy of the dataset
 df_standard[num_features] = std_scaler.fit_transform(
@@ -52,7 +52,7 @@ df_standard[num_features] = std_scaler.fit_transform(
 standard_path = os.path.join(FEATURES_DIR, "housing_scaled_standard.csv")
 df_standard.to_csv(standard_path, index=False)  # Save without row indices
 
-# 🔍 Log results in Weights & Biases
+#  Log results in Weights & Biases
 wandb.log(
     {
         "status": "Feature scaling completed",  # Log completion status

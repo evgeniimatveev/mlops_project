@@ -104,8 +104,8 @@ Then open http://localhost:5000 in your browser.
 
 ✅ MLflow & W&B integration  
 ✅ SQL experiment analysis  
- CI/CD with GitHub Actions  
- Model deployment via API  
+✅ CI/CD with GitHub Actions  
+ 
 
 ---
 

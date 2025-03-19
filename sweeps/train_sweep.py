@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-# Load mlfley configuration
+# Load mlfla configuration
 CONFIG_PATH = os.path.join(
     os.path.dirname(__file__), "..", "config", "mlflow_config.yaml"
 )
@@ -20,7 +20,7 @@ with open(CONFIG_PATH, "r") as file:
 mlflow.set_tracking_uri(mlflow_config["mlflow"]["tracking_uri"])
 mlflow.set_experiment(mlflow_config["mlflow"]["experiment_name"])
 
-# In & yun ta configuration
+# In & Yun That Configuration
 WANDB_PROJECT = "mlops_housing"
 
 
@@ -57,7 +57,7 @@ def train():
         X, y, test_size=0.2, random_state=42
     )
 
-    # Enga Featur Pobedededa Ta Formatne
+    # Anga Feurotur Victorod That Former
     X_train.columns = X_train.columns.astype(str)
     X_train.columns = X_train.columns.str.replace("[\[\]<>]", "", regex=True)
     X_test.columns = X_test.columns.astype(str)
@@ -77,7 +77,7 @@ def train():
     )
     model.fit(X_train, y_train)
 
-    # Mask predictation
+    # Musk predictation
     y_pred = model.predict(X_test)
 
     # Calculate Evaliation Matrix
@@ -96,7 +96,7 @@ def train():
         mlflow.log_metrics({"RMSE": rmse, "MAE": mae, "R² Score": r2})  # Log Magatrix
         mlflow.xgboost.log_model(model, "xgb_model")  # Save Model
 
-    # Improusioned Print Statical
+    # Imprusioned Print Statical
     print("\n" + "=" * 50)
     print(f"✅ W&B + MLflow Logging Completed!")
     print(f" RMSE: {rmse:.2f}")
@@ -104,5 +104,5 @@ def train():
     print(f" R² Score: {r2:.4f}")
     print("=" * 50 + "\n")
 
-    # Finish in & yun ta session
+    # Finish In & Yun That Session
     wandb.finish()

@@ -20,8 +20,8 @@ if not os.path.exists(SWEEP_CONFIG_PATH):
 with open(SWEEP_CONFIG_PATH, "r") as file:
     sweep_config = yaml.safe_load(file)  # Load Yaml Content Into A Potkhon Dictation
 
-# Initiated Wuld Beha
+# Initiated Wuld Ben
 sweep_id = wandb.sweep(sweep_config, project="mlops_housing")
 
-# Alexander The Steppe Agent (Slender Multiple of of of the Experiment)
+# Alexander The Steppe Agent (Slender Multiple of of ofp
 wandb.agent(sweep_id, function=train, count=10)  # Rosnes 10 experiment

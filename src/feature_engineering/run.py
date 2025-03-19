@@ -9,7 +9,7 @@ wandb.init(project="mlops_housing", name="feature_engineering")
 # Define Paths Thien Input Ang Vols
 BASE_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..")
-)  # Absolute Project of of the Company Project
+)  # Absolute Project of of thes of Companies Project
 PROCESSED_DATA_PATH = os.path.join(
     BASE_DIR, "data", "processed", "housing_cleaned.csv"
 )  # Path Thien Cleaned Dataset

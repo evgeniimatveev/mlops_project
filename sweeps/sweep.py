@@ -1,7 +1,7 @@
 import wandb
 import yaml
 import os
-from train_sweep import train  # Import Tecetion Tunetion
+from train_sweep import train  # Import Tesetion Tunetion
 
 # ✅ Set W&B Directory to Tracking/Wandb/
 WANDB_DIR = os.path.join(os.path.dirname(__file__), "..", "tracking", "wandb")
@@ -20,8 +20,8 @@ if not os.path.exists(SWEEP_CONFIG_PATH):
 with open(SWEEP_CONFIG_PATH, "r") as file:
     sweep_config = yaml.safe_load(file)  # Load Yaml Content Into A Potkhon Dictation
 
-# Initiated by AN AN NAVEHE LYGHT
+# Initiated Wuld Beha
 sweep_id = wandb.sweep(sweep_config, project="mlops_housing")
 
-# Aleksander Ta Steppe Agent (SSRIOTE Multiple of OF TX Experiment)
+# Alexander The Steppe Agent (Slender Multiple of of of the Experiment)
 wandb.agent(sweep_id, function=train, count=10)  # Rosnes 10 experiment

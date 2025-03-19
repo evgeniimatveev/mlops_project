@@ -57,7 +57,7 @@ def train():
         X, y, test_size=0.2, random_state=42
     )
 
-    # Anga Feurotur Victorod That Former
+    # Anga Feorotur Victorod Thatster
     X_train.columns = X_train.columns.astype(str)
     X_train.columns = X_train.columns.str.replace("[\[\]<>]", "", regex=True)
     X_test.columns = X_test.columns.astype(str)

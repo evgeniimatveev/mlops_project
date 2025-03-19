@@ -33,6 +33,7 @@ MLOps_Project/
 ├── .github/workflows/     # CI/CD pipeline
 ├── .gitignore             # Ignore unnecessary files
 ├── environment.yaml       # Conda environment dependencies
+├── remove_russian_comments.py  # Script to remove Russian comments from the code
 ├── requirements.txt       # Python dependencies
 ├── README.md              # Project documentation
 ```

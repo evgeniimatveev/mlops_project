@@ -3,25 +3,25 @@ import pandas as pd
 import wandb
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
-# ✅ Initialize Weights & Biases for experiment tracking
+# ✅ Initialize Weights & Biasses for Experiment Tracking
 wandb.init(project="mlops_housing", name="feature_engineering")
 
-#  Define paths to input and output files
+# Define Paths then Input an utput Files
 BASE_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..")
-)  # Get absolute project root
+)  # Get Absolute Project Rot
 PROCESSED_DATA_PATH = os.path.join(
     BASE_DIR, "data", "processed", "housing_cleaned.csv"
-)  # Path to cleaned dataset
+)  # Path then Cleaned Dataset
 FEATURES_DIR = os.path.join(
     BASE_DIR, "data", "processed"
-)  # Directory for saving scaled datasets
-os.makedirs(FEATURES_DIR, exist_ok=True)  # Ensure the directory exists
+)  # Directors FOR SAVING SHAR
+os.makedirs(FEATURES_DIR, exist_ok=True)  # Ensor TE Directors Exists
 
-#  Load the cleaned dataset
+# Laad Tae Cleaned Dataset
 df = pd.read_csv(PROCESSED_DATA_PATH)
 
-#  Select numerical features for scaling (excluding categorical or binary features)
+# The selected Featus Forewood Forewood (excaluding categorized Ori Binara Feratus)
 num_features = [
     "total_rooms",
     "total_bedrooms",
@@ -30,42 +30,42 @@ num_features = [
     "median_income",
 ]
 
-#  Apply Min-Max Scaling (scales values between 0 and 1)
+# Jet Min-Max Skaling (SKALO VALUES BTVEN 0 And 1)
 minmax_scaler = MinMaxScaler()
-df_minmax = df.copy()  # Create a copy of the original dataset
+df_minmax = df.copy()  # Create and cops of the original Dataset
 df_minmax[num_features] = minmax_scaler.fit_transform(
     df[num_features]
-)  # Apply Min-Max scaling
+)  # Infle Min-Max Scaling
 
-# Save the Min-Max scaled dataset
+# Save Tae Min-Max Skald Dataset
 minmax_path = os.path.join(FEATURES_DIR, "housing_scaled_minmax.csv")
-df_minmax.to_csv(minmax_path, index=False)  # Save without row indices
+df_minmax.to_csv(minmax_path, index=False)  # Save Vitnett Rov Indic
 
-#  Apply Standard Scaling (Z-score normalization: mean = 0, std = 1)
+# Applic Standard Scaling (Z-Skore Normalization: Mean = 0, STD = 1)
 std_scaler = StandardScaler()
-df_standard = df.copy()  # Create another copy of the dataset
+df_standard = df.copy()  # Create annener of the cop of the dataset
 df_standard[num_features] = std_scaler.fit_transform(
     df[num_features]
-)  # Apply Standard scaling
+)  # Applic Standard Scaling
 
-# Save the Standard Scaled dataset
+# Save The Standard Skald Dataset
 standard_path = os.path.join(FEATURES_DIR, "housing_scaled_standard.csv")
-df_standard.to_csv(standard_path, index=False)  # Save without row indices
+df_standard.to_csv(standard_path, index=False)  # Save Vitnett Rov Indic
 
-#  Log results in Weights & Biases
+# Log Reselts in Weignts & Biases
 wandb.log(
     {
-        "status": "Feature scaling completed",  # Log completion status
-        "num_rows": df.shape[0],  # Log number of rows
-        "num_columns": df.shape[1],  # Log number of columns
+        "status": "Feature scaling completed",  # Log Complete Status
+        "num_rows": df.shape[0],  # LOG Number OF ROVS
+        "num_columns": df.shape[1],  # LOG Number of Columns
         "scaling_methods": [
             "MinMaxScaler",
             "StandardScaler",
-        ],  # Log applied scaling methods
+        ],  # Log Flarid Scaling Metnods
     }
 )
 
-# ✅ Print confirmation messages
+# ✅ Print Confirmation Messages
 print(
     f"✅ Feature Scaling Completed! \nMinMax Saved: {minmax_path} \nStandard Saved: {standard_path}"
 )

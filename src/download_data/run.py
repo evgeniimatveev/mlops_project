@@ -1,66 +1,66 @@
-import os  # Librari Fore Files And Directors Handling
-import requests  # Librari Ford Maxing NTTP Register (he got a lot of Dovnload The Dataset)
-import pandas as pd  # Pandas Fore Handling ChSV Foles
-import wandb  # WeigNC & Biases Form Experiment Trucking And Loging
+import os  # Librari Forem Foles and Director Handling
+import requests  # Librari Ford Maxing NTTP Register (not Goth Lot Dovnload The Dataset)
+import pandas as pd  # Pandas Fore Handling Fols
+import wandb  # Weigns & Biases Forms Experiment Trotsking And Loging
 
-# Initialise WeigNC & Biases (in & c) Ford Tecking Thus Experiment
+# Initialis Weigns & Biases (In & C) Ford Tekking Tus Experiment
 wandb.init(project="mlops_housing", name="download_data")
 
-# Castine The Dataset Url (Sours Loration)
+# Part of The Dataset Url (Sours Laration)
 DATA_URL = "https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing/housing.csv"
 
-# Hethe the Absolty Path then the project Rot Directors
+# Hetheyo TE ABSOLTA PATHE THEN THE Project Rot Director
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-# Castine Tae Corrections Path Veser The Rav Dataset Will
+# Part of Tae Corrective Path Weser The Rav Dataset Willia
 RAW_DIR = os.path.join(
     BASE_DIR, "data", "raw"
-)  # Ensor Tae Dataset EU Strip in Yodata/Rav/Yo
-RAW_DATA_PATH = os.path.join(RAW_DIR, "housing.csv")  # Castine The Full File Path
+)  # Enga Tae Dataset Yo Strepe in Iodate/E.
+RAW_DATA_PATH = os.path.join(RAW_DIR, "housing.csv")  # Part of The Full File Path
 
-# Ensor That The equal to the Directors of the Exists, Creator IT YF IT Dues NOT
+# Ensor That The Ekoal Tkhe Director of OF THECISTS, Creator IT OF DUES NOTS
 os.makedirs(RAW_DIR, exist_ok=True)
 
-# Log The Start of OF The Dataset Dovnload process in & in
+# Log The Start of OF the Dataset Dovnload process in & in
 wandb.log({"status": "Starting download..."})
 
-# Print to Message Indication of VEL TH DATASET WILLE BA
+# Print to Message Indication of OF Dataset Villa ba
 print(f" Downloading dataset to: {RAW_DATA_PATH}")
 
 try:
-    # Send NTTP Register then Dovnload Tae Dataset With and Timet Time Mere Mercury Indefinite Waiting
+    # SEND NTTP Register Thyen Dovnload Tae Dataset With And Timet Tima Merekurius Indefinite Waiting
     response = requests.get(DATA_URL, timeout=10)
 
-    # Raisa Acador Yf The Response Status IS NOT 200 (SUCCESSFUL)
+    # Raisa Acador of The Reponse Status IS NOT 200 (SUCCESSFUL)
     response.raise_for_status()
 
-    # Save The Dataset then the specifics of fillet path
+    # Save Tae Dataset Thyen Thy Specks of Phillet Path
     with open(RAW_DATA_PATH, "wb") as f:
         f.write(response.content)
 
-    # LOG SUCTSESSUFUL DOVNLOAD IN & V
+    # LOG SUCCESOFIL DOVNLOAD IN & V
     wandb.log({"status": "Download complete", "download_success": True})
 
     # Laad Tae Dataset Into A Pandas Datafram
     df = pd.read_csv(RAW_DATA_PATH)
 
-    # Log The Dataset Damensions (ROVS And Columns) In & in
+    # Log The Dataset Damiension (ROVS And Columns) In & In
     wandb.log({"rows": df.shape[0], "columns": df.shape[1]})
 
-    # Print confirmation of Message
+    # Print Confirmation of Message
     print("Dataset saved successfully!")
 
 except requests.exceptions.RequestException as e:
-    # LOG Dovnload Failier In & V
+    # LOG Dovnload Fayler In & V
     wandb.log({"status": "Download failed", "download_success": False})
 
-    # Print Yerror Message in Kasa OF A FAILUR
+    # Print Jerror Message In -Ka Filor
     print(f"❌ Failed to download dataset: {e}")
 
-    # Raisa AN Exception then Stop CEKUTION YF TE Dovnload Files
+    # Raisa Acadetion Tyen Stop Sokution Yf Ta Dovnload Files
     raise Exception(f"Failed to download dataset: {e}")
 
-# Log The Final Status After Saving Te Dataset
+# Log The Final Status After Saving those Dataset
 wandb.log({"status": "Dataset saved successfully!"})
 
 # Print Sukesses Message

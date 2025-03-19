@@ -3,7 +3,7 @@ import re
 from googletrans import Translator
 
 translator = Translator()
-pattern = re.compile(r'# (.*) b)
+pattern = re.compile(r'#Es*(.*) b)
 
 def translate_comment(comment):
     try:
@@ -15,7 +15,7 @@ def translate_comment(comment):
 def replace_russian_comments(directory):
     for root, _, files in os.walk(directory):
         for file in files:
-            if file.endswith(".py"): 
+            if file.endswith(".py"):  # Only python files
                 path = os.path.join(root, file)
                 with open(path, "r", encoding="utf-8") as f:
                     lines = f.readlines()
@@ -29,4 +29,4 @@ def replace_russian_comments(directory):
                             line = line.replace(russian_comment, translated_comment)
                         f.write(line)
 
-replace_russian_comments(".") 
+replace_russian_comments(".")  

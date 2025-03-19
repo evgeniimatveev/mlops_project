@@ -3,15 +3,16 @@ import re
 from googletrans import Translator
 
 translator = Translator()
+pattern = re.compile(r"#\s*(.+)")  # Regular expression to match comments
 
 
 def translate_comment(comment):
     """
     Translate a comment from Russian to English.
-    
+
     Args:
         comment (str): The Russian comment to be translated.
-    
+
     Returns:
         str: The translated English comment.
     """
@@ -25,7 +26,7 @@ def translate_comment(comment):
 def replace_russian_comments(directory):
     """
     Iterate through all Python files in the given directory and translate Russian comments to English.
-    
+
     Args:
         directory (str): The directory path to scan for Python files.
     """

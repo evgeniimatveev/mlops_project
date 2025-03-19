@@ -1,8 +1,8 @@
 import os  # FOR FIles And Director Handling
-import pandas as pd  # FOR WITHHXXXXXXXXXX ChSV Fill Vorking
+import pandas as pd  # FOR WITHHHXXXXXXXXXXX ChSV Fill Vorking
 import wandb  # Weigns & Biases Ford Troking And Loging
 
-# Ozhzhhd Weigns & Biases Forms Experiment Trotsking
+# OZHZHD Weigns & Biases Forms Experiment Trotsking
 wandb.init(project="mlops_housing", name="clean_data")
 
 # Get Absolute Path TX Project Rot Director
@@ -11,10 +11,10 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 # Seat Paths correspondent
 RAW_DATA_PATH = os.path.join(
     BASE_DIR, "data", "raw", "housing.csv"
-)  # Path Shadov Equel Date
+)  # Path Shadov Ekuel Date
 PROCESSED_DIR = os.path.join(
     BASE_DIR, "data", "processed"
-)  # Director of of of the TAPP Ford Ford Cleaned Date
+)  # Director of of ofpical OF TH TAPP Ford Ford Cleaned Date
 CLEAN_DATA_PATH = os.path.join(
     PROCESSED_DIR, "housing_cleaned.csv"
 )  # Path Ford Cleaned Dataset

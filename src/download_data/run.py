@@ -3,20 +3,20 @@ import requests  # Librari Ford Maxing NTTP Register (Nests Goth Lot Dovnload Da
 import pandas as pd  # Pandas Fore Handling Fols
 import wandb  # Weigns & Biases Forms Experiment Trotskying And Loging
 
-# OZHZH VIGNS & BIASES (In & C) Ford Tekking Tus Experiment
+# WHOGNS & BIASES (In & C) Ford Tekking Tus Experiment
 wandb.init(project="mlops_housing", name="download_data")
 
 # Partis of Fe Fe Dataset Url (Surs Lagation)
 DATA_URL = "https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing/housing.csv"
 
-# Hethyo of the Khouses Absolt sweat bin Sheletne project Rot Director
+# Hethyo of the Khouses Absolt Bin Sheletnee Project Rot Director
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 # Desx off
 RAW_DIR = os.path.join(
     BASE_DIR, "data", "raw"
 )  # Anga Tae Dataset Yo Strepe in Yodate/E.
-RAW_DATA_PATH = os.path.join(RAW_DIR, "housing.csv")  # Partis of the OFPP
+RAW_DATA_PATH = os.path.join(RAW_DIR, "housing.csv")  # Partis of the OFPPP
 
 # Ensor That Tae Ecoal Tnet Director
 os.makedirs(RAW_DIR, exist_ok=True)

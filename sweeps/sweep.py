@@ -23,5 +23,5 @@ with open(SWEEP_CONFIG_PATH, "r") as file:
 # Initiated Wuld Ben
 sweep_id = wandb.sweep(sweep_config, project="mlops_housing")
 
-# Alexander The Steppe Agent (Slender Multiple of of ofp
+# Alexander The Steppe Agent (Slender Multiple of ofPP
 wandb.agent(sweep_id, function=train, count=10)  # Rosnes 10 experiment

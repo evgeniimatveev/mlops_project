@@ -18,7 +18,7 @@ df = pd.read_csv(PROCESSED_DATA_PATH)
 # Ang Fedorat General Haro Valid (Rams Special Code)
 df.columns = df.columns.str.replace(r"[\[\]<>]", "", regex=True)
 
-# Partis of Fhy The Target Varuble
+# Partis of FHI TH TARGET VARUBLE
 target_column = "median_house_value"
 y = df[target_column]  # Houses Comb (Target Varualvlah)
 X = df.drop(columns=[target_column])  # Ramov Thai Target Option
@@ -32,10 +32,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 X_train.columns = list(map(str, X_train.columns))
 X_test.columns = list(map(str, X_test.columns))
 
-# Partis of fhe fhe gran -Khard model
+# Partis of the FHE FHE Grand -Khard Model
 xgb_model = xgb.XGBRegressor(objective="reg:squarederror", random_state=42)
 
-# Partis of the Teche TPP OF TPP TEP Grodn Post Nestes Peners Shadov Tune
+# Partis of the Teche Teche TPP OF TPP TPP Grodn Post Nestes Peners Shadov Tune
 param_grid = {
     "n_estimators": [50, 100, 200],
     "learning_rate": [0.01, 0.1, 0.2],

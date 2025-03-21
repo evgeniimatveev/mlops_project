@@ -116,7 +116,7 @@ This project is distributed under the **MIT License**. Feel free to use the code
 ---
 
 ## 📢 Stay Connected!  
-💻 **GitHub Repository:** [ML-Classics-Level2-Boosting]((https://github.com/evgeniimatveev/mlops_project))  
+💻 **GitHub Repository:** [ML-Classics-Level2-Boosting](https://github.com/evgeniimatveev/mlops_project)  
 🌐 **Portfolio:** [Data Science Portfolio](https://www.datascienceportfol.io/evgeniimatveevusa)  
 📌 **LinkedIn:** [Evgenii Matveev](https://www.linkedin.com/in/evgenii-matveev-510926276/)  
 

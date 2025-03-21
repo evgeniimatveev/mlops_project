@@ -110,4 +110,17 @@ Then open http://localhost:5000 in your browser.
 
 ---
 
-⚡ **Happy Coding & Experiment Tracking!** 
+## 📜 License  
+This project is distributed under the **MIT License**. Feel free to use the code! 🚀  
+
+---
+
+## 📢 Stay Connected!  
+💻 **GitHub Repository:** [ML-Classics-Level2-Boosting](https://github.com/evgeniimatveev/Ml-Classics-Level2-Boosting)  
+🌐 **Portfolio:** [Data Science Portfolio](https://www.datascienceportfol.io/evgeniimatveevusa)  
+📌 **LinkedIn:** [Evgenii Matveev](https://www.linkedin.com/in/evgenii-matveev-510926276/)  
+
+
+---
+
+🔥 **If you like this project, don't forget to star ⭐ the repository!** 🔥

@@ -1,126 +1,161 @@
-#  MLOps Project
-![MLOps](https://img.shields.io/badge/MLOps-Automation-blue) 
-![Tracking](https://img.shields.io/badge/Tracking-MLflow%20%7C%20W%26B-orange) 
-![SQL](https://img.shields.io/badge/Database-PostgreSQL-blue) 
-![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-green) 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen) 
-![License](https://img.shields.io/badge/License-MIT-lightgrey)  
+# MLOps Pipeline — XGBoost · MLflow · W&B · PostgreSQL · GitHub Actions
 
-##  Overview
+![MLOps](https://img.shields.io/badge/MLOps-Automation-blue)
+![MLflow](https://img.shields.io/badge/MLflow-Tracking-orange?logo=mlflow)
+![W&B](https://img.shields.io/badge/W%26B-Sweeps-yellow)
+![XGBoost](https://img.shields.io/badge/XGBoost-Model-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Experiments-blue?logo=postgresql)
+![CI/CD](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-black?logo=githubactions)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-This repository provides an **end-to-end MLOps pipeline** for managing, tracking, and automating machine learning experiments.  
-The project integrates **MLflow**, **Weights & Biases (W&B)**, **SQL** for experiment analysis, and **CI/CD automation**.
+---
 
-##  Project Structure
+## What This Project Does
 
+End-to-end MLOps pipeline for training, tracking, and analyzing XGBoost experiments. Dual tracking with **MLflow** (local registry) and **Weights & Biases** (cloud logging + hyperparameter sweeps), with **PostgreSQL** used to query the MLflow database directly via SQL.
+
+**What makes it stand out:** SQL analytics on top of the MLflow experiment database — query best runs, compare hyperparameters, and analyze experiment history the same way you'd query business data.
+
+**Pipeline:** `Data → Preprocessing → Feature Engineering → XGBoost → MLflow + W&B → SQL Analysis → CI/CD`
+
+---
+
+## SQL on MLflow Experiments
+
+Most people use the MLflow UI. This project queries the MLflow PostgreSQL backend directly with SQL.
+
+### Best 3 Runs by RMSE
+
+```sql
+SELECT
+    r.run_uuid,
+    e.name          AS experiment_name,
+    m.value         AS rmse
+FROM runs r
+JOIN experiments e ON r.experiment_id = e.experiment_id
+JOIN metrics     m ON r.run_uuid      = m.run_uuid
+WHERE m.key = 'RMSE'
+ORDER BY m.value ASC
+LIMIT 3;
 ```
-MLOps_Project/
-├── data/                  # Raw and processed datasets
-├── mlruns/                # MLflow tracking logs
-├── models/                # Saved models
-├── notebook/              # Jupyter notebooks for analysis
-├── sql_queries/           # SQL scripts for MLflow experiments analysis
-├── src/                   # Core source code
-│   ├── clean_data/        # Data preprocessing scripts
-│   ├── download_data/     # Data downloading scripts
-│   ├── feature_engineering/ # Feature transformation scripts
-│   ├── model_training/    # Model training scripts
-│   ├── model_deployment/  # API for model deployment
-│   ├── utils/             # Utility functions
-├── sweeps/                # W&B sweep scripts for hyperparameter tuning
-├── wandb/                 # Weights & Biases logs
-├── config/                # Project configuration files
-├── .github/workflows/     # CI/CD pipeline
-├── .gitignore             # Ignore unnecessary files
-├── environment.yaml       # Conda environment dependencies
-├── remove_russian_comments.py  # Script to remove Russian comments from the code
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
+
+### Hyperparameter Impact on RMSE
+
+```sql
+SELECT
+    p.key            AS hyperparam,
+    p.value          AS param_value,
+    AVG(m.value)     AS avg_rmse
+FROM runs    r
+JOIN params  p ON r.run_uuid = p.run_uuid
+JOIN metrics m ON r.run_uuid = m.run_uuid
+WHERE m.key = 'RMSE'
+GROUP BY p.key, p.value
+ORDER BY avg_rmse ASC;
+```
+
+### Experiment Summary (Runs Count)
+
+```sql
+SELECT
+    e.experiment_id,
+    e.name           AS experiment_name,
+    COUNT(r.run_uuid) AS total_runs
+FROM experiments e
+LEFT JOIN runs r ON e.experiment_id = r.experiment_id
+GROUP BY e.experiment_id, e.name
+ORDER BY total_runs DESC;
 ```
 
 ---
 
-##  Tech Stack  
+## Architecture
 
-- **MLflow**  – Experiment tracking and model registry  
-- **Weights & Biases (W&B)**  – Logging and hyperparameter sweeps  
-- **PostgreSQL** ️ – SQL for tracking and querying experiments  
-- **XGBoost**  – Machine learning model  
-- **Python**  – Main programming language  
-- **GitHub Actions** ⚙️ – CI/CD automation  
+```
+Raw Data
+    └── src/clean_data/          # preprocessing
+            └── src/feature_engineering/
+                    └── src/model_training/   # XGBoost
+                            ├── MLflow        # local experiment registry
+                            ├── W&B           # cloud logging + sweeps
+                            └── PostgreSQL    # SQL on MLflow DB
+                                    └── sql_queries/
+                                            ├── best_models.sql
+                                            ├── hyperparams_analysis.sql
+                                            ├── experiments_analysis.sql
+                                            └── custom_queries.sql
+```
 
 ---
 
-##  Setup & Installation  
+## Project Structure
 
-### 1️⃣ Clone the repository  
+```
+mlops_project/
+├── src/
+│   ├── clean_data/           # data preprocessing
+│   ├── download_data/        # data ingestion
+│   ├── feature_engineering/  # feature transformations
+│   ├── model_training/       # XGBoost training + logging
+│   ├── model_deployment/     # FastAPI inference endpoint
+│   └── utils/                # shared utilities
+├── sql_queries/              # SQL analytics on MLflow DB
+│   ├── best_models.sql
+│   ├── hyperparams_analysis.sql
+│   ├── experiments_analysis.sql
+│   ├── custom_queries.sql
+│   └── delete_old_experiments.sql
+├── sweeps/                   # W&B hyperparameter sweep configs
+├── config/                   # project configuration
+├── models/                   # saved model artifacts
+├── .github/workflows/        # CI/CD pipeline
+└── environment.yaml
+```
+
+---
+
+## How to Run
 
 ```bash
-git clone https://github.com/your-username/mlops_project.git
+# 1. Clone and set up environment
+git clone https://github.com/evgeniimatveev/mlops_project.git
 cd mlops_project
-```
-
-### 2️⃣ Create a virtual environment (Optional)  
-
-```bash
 conda env create -f environment.yaml
 conda activate mlops_env
-```
 
-OR
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate  # On Windows
-pip install -r requirements.txt
-```
-
-### 3️⃣ Run the pipeline  
-
-#### Run data preprocessing  
-```bash
+# 2. Run pipeline steps
 python src/clean_data/run.py
-```
-
-#### Run model training  
-```bash
 python src/model_training/run.py
-```
 
-#### Run hyperparameter tuning with W&B  
-```bash
-python sweeps/sweep.py
-```
-
-#### Start MLflow UI  
-```bash
+# 3. Launch MLflow UI
 mlflow ui --host 0.0.0.0 --port 5000
+# Open http://localhost:5000
+
+# 4. Run W&B hyperparameter sweep
+python sweeps/sweep.py
+
+# 5. Query experiments via SQL
+# Connect DBeaver to PostgreSQL → run sql_queries/*.sql
 ```
-Then open http://localhost:5000 in your browser.
 
 ---
 
-##  Future Plans
+## Stack
 
-✅ MLflow & W&B integration  
-✅ SQL experiment analysis  
-✅ CI/CD with GitHub Actions  
- 
-
----
-
-## 📜 License  
-This project is distributed under the **MIT License**. Feel free to use the code! 🚀  
-
----
-
-## 📢 Stay Connected!  
-💻 **GitHub Repository:** [Evgenii Matveev](https://github.com/evgeniimatveev)  
-🌐 **Portfolio:** [Data Science Portfolio](https://www.datascienceportfol.io/evgeniimatveevusa)  
-📌 **LinkedIn:** [Evgenii Matveev](https://www.linkedin.com/in/evgenii-matveev-510926276/)  
-
+| Layer | Technology |
+|-------|-----------|
+| Model | XGBoost |
+| Experiment Tracking | MLflow (local) + W&B (cloud) |
+| Hyperparameter Tuning | W&B Sweeps |
+| Experiment Analytics | PostgreSQL + SQL |
+| CI/CD | GitHub Actions |
+| Language | Python |
 
 ---
 
-🔥 **If you like this project, don't forget to star ⭐ the repository!** 🔥
+## Connect
+
+- GitHub: [evgeniimatveev](https://github.com/evgeniimatveev)
+- Portfolio: [datascienceportfol.io/evgeniimatveevusa](https://www.datascienceportfol.io/evgeniimatveevusa)
+- LinkedIn: [Evgenii Matveev](https://www.linkedin.com/in/evgenii-matveev-510926276/)

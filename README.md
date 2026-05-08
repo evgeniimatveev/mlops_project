@@ -30,8 +30,6 @@ End-to-end MLOps pipeline for training, tracking, and analyzing XGBoost experime
   | GridSearch evaluations | 729 (243 configs × 3-fold CV) |
   | W&B Sweep runs | 10 (Bayesian optimization, 5 hyperparameters) |
 
-  **Dataset:** California Housing — 20,640 records, predicting median house value
-
 ---
 ## SQL on MLflow Experiments
 

@@ -19,6 +19,17 @@ End-to-end MLOps pipeline for training, tracking, and analyzing XGBoost experime
 **Pipeline:** `Data → Preprocessing → Feature Engineering → XGBoost → MLflow + W&B → SQL Analysis → CI/CD`
 
 ---
+  ---
+  **Dataset:** California Housing — 20,640 records, predicting median house value
+
+  **Best run results:**
+  | Metric | Value |
+  |--------|-------|
+  | R² Score | **0.8832** |
+  | GridSearch evaluations | 729 (243 configs × 3-fold CV) |
+  | W&B Sweep runs | 10 (Bayesian optimization, 5 hyperparameters) |
+
+---
 
 ## SQL on MLflow Experiments
 

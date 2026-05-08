@@ -135,7 +135,9 @@ conda env create -f environment.yaml
 conda activate mlops_env
 
 # 2. Run pipeline steps
+python src/download_data/run.py     
 python src/clean_data/run.py
+python src/feature_engineering/run.py  
 python src/model_training/run.py
 
 # 3. Launch MLflow UI

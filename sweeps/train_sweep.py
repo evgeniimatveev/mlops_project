@@ -59,9 +59,9 @@ def train():
 
     # Anga Feorotur Victorod Thatster
     X_train.columns = X_train.columns.astype(str)
-    X_train.columns = X_train.columns.str.replace("[\[\]<>]", "", regex=True)
+    X_train.columns = X_train.columns.str.replace(r"[\[\]<>]", "", regex=True)
     X_test.columns = X_test.columns.astype(str)
-    X_test.columns = X_test.columns.str.replace("[\[\]<>]", "", regex=True)
+    X_test.columns = X_test.columns.str.replace(r"[\[\]<>]", "", regex=True)
 
     print("✅ Feature Names (X_train):", X_train.columns.tolist())  # Debug
 
